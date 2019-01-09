@@ -21,9 +21,9 @@ kubectl apply -f manifests
 
 Wait for one or two minutes until the application is running.
 
-If you are running in Docker for Mac, the Movies App is available on `locahost:32000`.
+If you are running in Docker for Mac, the Movies App is available on `locahost:9000`.
 
-If you are running in minikube, the Movies App is available on port 32000 in the minikube ip (`minikube ip`).
+If you are running in minikube, the Movies App is available on port 9000 in the minikube ip (`minikube ip`).
 
 ## Develop as a Cloud Native Developer
 
