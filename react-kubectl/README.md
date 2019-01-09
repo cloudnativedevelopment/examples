@@ -38,17 +38,34 @@ This will create a remote container which is synchronized with your local code c
 
 Our React example uses [Parcel](https://parceljs.org/) to bundle the application and enable [Hot Module Replacement](https://parceljs.org/hmr.html) to automatically update modules in the browser at runtime without needing a whole page refresh.
 
-With CND we can bring this development experience to the cluster coding exactly like you would do in local:
+With CND we can bring this development experience to the cluster with the same flow you would have in local:
 
 ```console
+# Install dependencies.
+cnd exec yarn install
+
+# Run parcel dev server.
 cnd exec yarn start
 ```
 
-This will launch `parcel` and its development server in the remote container.
+This will intall the dependencies and launch `parcel` with its development server in the remote container.
 
 You can now edit the file `src/App.jsx` and change the `Movies` text in line 8 to `Netflix`. Save your changes. 
 
 Go back to the browser, and cool! Your changes are automatically live with no need to refresh your browser!
+
+Alternatively you can access the remote shell by executing:
+
+```console
+cnd exec bash
+```
+
+And then work just like you do in local:
+
+```console
+yarn install
+yarn start
+```
 
 *review [cnd's usage](https://github.com/okteto/cnd/docs/cli-reference.md) guide to see other commands available to help you speed you up your development.*
 
