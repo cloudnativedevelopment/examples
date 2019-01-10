@@ -1,0 +1,8 @@
+swap:
+  deployment:
+    name: vote
+mount:
+  source: .
+  target: /usr/src/app
+scripts:
+  hello: echo Your cluster ♥ you
