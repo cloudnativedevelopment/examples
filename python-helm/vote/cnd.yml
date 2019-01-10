@@ -1,0 +1,13 @@
+swap:
+  deployment:
+    name: vote
+    image: python
+    command:
+    - sh
+    - -c
+    - pip install -r requirements.txt && python app.py
+mount:
+  source: .
+  target: /usr/src/app
+scripts:
+  hello: echo Your cluster ♥ you
