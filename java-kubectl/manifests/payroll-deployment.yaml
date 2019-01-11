@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: payroll
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: payroll
+    spec:
+      containers:
+      - image: openjdk:alpine
+        name: payroll
+        command: 
+          - tail
+          - -f
+          - /dev/null

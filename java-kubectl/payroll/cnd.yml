@@ -1,0 +1,15 @@
+swap:
+  deployment:
+    name: payroll
+    image: maven:3-jdk-10-slim
+    command:
+    - tail
+    - -f
+    - /dev/null
+mount:
+  source: .
+  target: /usr/src/app
+scripts:
+  hello: echo Your cluster ♥ you
+  build: mvn clean package
+  dev: mvn spring-boot:run
