@@ -1,6 +1,8 @@
 # Payroll
 
-This guides shows an example of developing a Spring Boot Java application with cnd. It's based on [Spring's gs-rest-service example](https://github.com/spring-guides/gs-rest-service).
+This example shows how to develop a Spring Boot Java application with [cnd](https://github.com/okteto/cnd). It's based on [Spring's gs-rest-service example](https://github.com/spring-guides/gs-rest-service).
+
+This example works in any kubernetes cluster. Cloud Native Development provides more value in remote kubernetes clusters, but in order to make it simple to follow this guide, we recommend to use Docker for Mac (with Kubernetes support) or [minikube](https://github.com/kubernetes/minikube). 
 
 ## Deploy the payroll service
 

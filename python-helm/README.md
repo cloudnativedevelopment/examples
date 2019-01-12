@@ -3,7 +3,10 @@ Example helm + python app
 
 A simple helm chart that deploys a Python app (using Flask) to demo the power of [cloud native development](https://github.com/cnd).
 
-*Prerequisites: you need to have a kubernetes cluster running with helm installed.*
+This example works in any kubernetes cluster. Cloud Native Development provides more value in remote kubernetes clusters, but in order to make it simple to follow this guide, we recommend to use Docker for Mac (with Kubernetes support) or [minikube](https://github.com/kubernetes/minikube). 
+
+For this example you also need to have helm installed and configured in your cluster. 
+
 
 ## Deploy the chat
 
