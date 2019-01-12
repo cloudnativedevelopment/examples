@@ -1,0 +1,15 @@
+swap:
+  deployment:
+    name: payroll
+    image: gradle:5.1-jdk11
+    command: 
+    - gradle
+    - build
+    - -continuous
+    - --scan
+mount:
+  source: .
+  target: /home/gradle
+scripts:
+  boot: gradle bootRun
+  hello: echo Your cluster ♥ you

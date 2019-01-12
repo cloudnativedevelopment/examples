@@ -2,7 +2,7 @@
 
 This repository contains the example code of a React front-end for a video streaming application. It is also configured to work on a [cloud native development](https://github.com/okteto/cnd) environment and prepared to be deployed using raw kubernetes manifests.
 
-The demo works in any kubernetes cluster. Cloud Native Development provides more value in remote kubernetes clusters, but in order to make it simple to follow this guide, we recommend to use Docker for Mac (with Kubernetes support) or [minikube](https://github.com/kubernetes/minikube).
+This example works in any kubernetes cluster. Cloud Native Development provides more value in remote kubernetes clusters, but in order to make it simple to follow this guide, we recommend to use Docker for Mac (with Kubernetes support) or [minikube](https://github.com/kubernetes/minikube). 
 
 ## Deploy the Movies React App
 
