@@ -1,15 +1,16 @@
 swap:
   deployment:
     name: payroll
-    image: gradle:jdk
+    image: gradle:5.1-jdk11
     command:
-    - tail
-    - -f
-    - /dev/null
+    - gradle
+    - build
+    - -continuous
+    - --debug
+    - --scan
 mount:
   source: .
   target: /usr/src/app
 scripts:
+  boot: gradle bootRun
   hello: echo Your cluster ♥ you
-  build: gradle build -continuous --info --scan
-  watch: gradle bootRun
