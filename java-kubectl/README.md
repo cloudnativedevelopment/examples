@@ -95,7 +95,7 @@ curl http://<external-ip>:8080/employees/5
 }
 ```
 
-Your changes were automatically applied, no docker or kubectl required 💪! 
+Your changes were automatically applied, no docker, kubectl or even a local jvm required 💪! 
 
 *review [cnd's usage](https://github.com/okteto/cnd/docs/cli-reference.md) guide to see other commands available to help you speed you up your development.*
 
