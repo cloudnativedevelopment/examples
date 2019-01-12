@@ -32,7 +32,7 @@ cnd up
 
 This will create a remote container which is synchronized with your local code changes. The container already includes java dev tools (e.g. gradle), and it's configured to  automatically compile your code directly on the cluster everytime you make a change.
 
-On a second terminal screen execute the command below. This will run the `boot` command as defined on [`cnd.yml`](cnd.yml). The boot command will run `gradle bootRun` directly in the cluster. The command will start your service and reload it automatically after every succesful compilation.
+On a second terminal screen execute the command below. This will run the `boot` script as defined by the user on [`cnd.yml`](cnd.yml). The boot script will run `gradle bootRun` directly in the cluster. The command will start your service and reload it automatically after every succesful compilation.
 ```console
 cnd run boot
 ```

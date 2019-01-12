@@ -2,8 +2,6 @@
 
 This repository contains a Cloud Native Development ([CND](https://github.com/okteto/cnd)) demo for the well known Docker [Voting App](https://github.com/dockersamples/example-voting-app) deployed using raw kubernetes manifests.
 
-The demo works in any kubernetes cluster. Cloud Native Development provides more value in remote kubernetes clusters, but in order to make it simple to follow this guide, we recommend to use Docker for Mac (with Kubernetes support) or [minikube](https://github.com/kubernetes/minikube).
-
 ## Deploy the Voting App
 
 Clone this repo and move to this example folder.
