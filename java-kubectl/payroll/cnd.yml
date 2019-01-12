@@ -1,7 +1,7 @@
 swap:
   deployment:
     name: payroll
-    image: maven:3-jdk-10-slim
+    image: gradle:jdk
     command:
     - tail
     - -f
@@ -11,5 +11,5 @@ mount:
   target: /usr/src/app
 scripts:
   hello: echo Your cluster ♥ you
-  build: mvn clean package
-  dev: mvn spring-boot:run
+  build: gradle build -continuous --info --scan
+  watch: gradle bootRun
