@@ -10,9 +10,5 @@ spec:
         app: payroll
     spec:
       containers:
-      - image: openjdk:alpine
+      - image: okteto/payroll:0.1
         name: payroll
-        command: 
-          - tail
-          - -f
-          - /dev/null
