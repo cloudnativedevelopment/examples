@@ -41,7 +41,6 @@ Verify that everything is up and running by calling the `/employees` endpoint fr
 ```console
 curl http://<external-ip>:8080/employees
 ```
-where <external-ip> is the external IP address of your Service.
 
 The response to a successful request is a list of employees:
 ```json
@@ -62,22 +61,37 @@ curl http://<external-ip>:8080/employees/4
 }
 ```
 
- Open [payroll/src/main/java/payroll/PayrollController.java](payroll/src/main/java/payroll/PayrollController.java) with your favorite IDE. Add a new employee to the list declared on  line 20 and save your changes.
+ Time to write some code. Let's say that the company just hired employee #5, and you're tasked with adding her to the employee list. First, we'll check and see if someone else already took care of the work by calling the API:
+
+ ```console
+curl http://<external-ip>:8080/employees/4
+```
+```json
+{
+    "timestamp":"2019-01-12T04:36:29.225+0000",
+    "status":404,
+    "error":"Not Found",
+    "message":"employee not found",
+    "path":"/employees/5"
+}
+```
+ 
+ Alright, the new employee is not yet in the system. Open [payroll/src/main/java/payroll/PayrollController.java](payroll/src/main/java/payroll/PayrollController.java) with your favorite IDE. Add the new employee to the list (look around line 20) and save your changes.
  ```java
  ...
     this.employees.put(4, new Employee(4, "Cindy Lopez"));
-    this.employees.put(5, new Employee(5, "Alexandra Smith"));
+    this.employees.put(5, new Employee(5, "Alexandra Greyson"));
 ...
  ```
 
- Go back to your terminal and call the employee API, this time passing the new employee ID:
+ Go back to your terminal and call API again:
 ```console
 curl http://<external-ip>:8080/employees/5
 ```
 ```json
 {
     "id":5,
-    "name":"Alexandra Smith"
+    "name":"Alexandra Greyson"
 }
 ```
 
