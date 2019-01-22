@@ -6,11 +6,11 @@ const data = {
 };
 
 app.listen(3000, () => {
-  app.get("/movies", (req, res, next) => {
+  app.get("/api/movies", (req, res, next) => {
     res.json(data.movies);
   });
 
-  app.get("/shows", (req, res, next) => {
+  app.get("/api/shows", (req, res, next) => {
     res.json(data.shows);
   });
 

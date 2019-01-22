@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: movies-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+spec:
+  rules:
+  - host: movies.usa.okteto.net
+    http:
+      paths:
+      - path: /api
+        backend: 
+          serviceName: movies-api
+          servicePort: 3000
+      - path: /hmr
+        backend:
+          serviceName: movies-frontend
+          servicePort: 9001
+      - path: / 
+        backend:
+          serviceName: movies-frontend
+          servicePort: 9000
+  tls:
+  - hosts:
+    - movies.usa.okteto.net
+    secretName: movies-tls

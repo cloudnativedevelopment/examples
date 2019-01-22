@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: movies-api
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: "movies-api-service"
     port: 3000
