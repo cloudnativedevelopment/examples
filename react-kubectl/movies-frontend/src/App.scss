@@ -155,7 +155,7 @@
     padding: 20px 40px;
     box-sizing: border-box;
     transition: opacity 3s ease;
-    opacity: 0;
+    // opacity: 0;
     position: relative;
     z-index: 4;
     
@@ -168,9 +168,9 @@
       justify-content: space-between;
     }
 
-    &[data-loaded='true'] {
-      opacity: 1;
-    }
+    // &[data-loaded='true'] {
+    //   opacity: 1;
+    // }
   }
 
   .Item {
@@ -291,6 +291,18 @@
 
     div {
       top: -32px;
+    }
+  }
+
+  .Loader {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin: 0 auto 1em;
+
+    svg path,
+    svg rect{
+      fill: #00d1ca;
     }
   }
 }

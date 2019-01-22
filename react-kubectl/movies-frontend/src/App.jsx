@@ -24,10 +24,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('')
+    fetch('/api/movies')
       .then(res => res.json())
       .then(result => {
+        this.setState({
+          movies: {
+            data: result,
+            loaded: true
+          }
+        })
+      });
 
+    fetch('/api/shows')
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          shows: {
+            data: result,
+            loaded: true
+          }
+        })
       });
   }
 
@@ -42,6 +58,32 @@ class App extends Component {
         <Hero />
         <TitleList title="Top TV picks for Cindy" titles={shows.data} loaded={shows.loaded}/>
         <TitleList title="Trending now" titles={movies.data} loaded={movies.loaded} />
+      </div>
+    );
+  }
+}
+
+class Loader extends Component {
+  render() {
+    return (
+      <div className="Loader">
+        <svg version="1.1" id="loader" x="0px" y="0px"
+            width="40px" 
+            height="40px" 
+            viewBox="0 0 50 50" 
+            style={{
+              enableBackground: 'new 0 0 50 50'
+            }}>
+          <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+            <animateTransform attributeType="xml"
+              attributeName="transform"
+              type="rotate"
+              from="0 25 25"
+              to="360 25 25"
+              dur="0.6s"
+              repeatCount="indefinite"/>
+          </path>
+        </svg>
       </div>
     );
   }
@@ -109,47 +151,15 @@ class HeroButton extends Component {
 class TitleList extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      data: [], 
-      mounted: false
-    };
-  }
-
-  loadContent() {
-    let data;
-    if (this.props.content === 'tv') {
-      data = this.state.shows.data;
-    } else {
-      data = this.state.movies.data;
-    }
-    this.setState({ data: data });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.content !== this.props.content && nextProps.content !== '') {
-      this.setState({ 
-        mounted: true,
-        content: nextProps.content
-      }, () => {
-        this.loadContent();
-      });
-    }
-  }
-
-  componentDidMount() {
-    if (this.props.url !== ''){
-      this.loadContent();
-      this.setState({ mounted: true });
-    }
   }
 
   render() {
-    var titles = '';
-    if (this.state.data.results) {
-      titles = this.state.data.results.map(function(title, i) {
+    let titles = '';
+    if (this.props.titles.results) {
+      titles = this.props.titles.results.map((title, i) => {
         if (i < 4) {
-          var name = '';
-          var backDrop = `http://image.tmdb.org/t/p/original${title.backdrop_path}`;
+          let name = '';
+          const backDrop = `http://image.tmdb.org/t/p/original${title.backdrop_path}`;
           if (!title.name) {
             name = title.original_title;
           } else {
@@ -172,11 +182,11 @@ class TitleList extends Component {
       }); 
     } 
     return (
-      <div ref="titlecategory" className="TitleList" data-loaded={this.state.mounted}>
+      <div ref="titlecategory" className="TitleList">
         <div className="Title">
           <h1>{this.props.title}</h1>
           <div className="titles-wrapper">
-            {titles}
+            {titles || <Loader />}
           </div>
         </div>
       </div>
