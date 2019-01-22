@@ -12,7 +12,8 @@
     "sass": "^1.15.3"
   },
   "scripts": {
-    "start": "CHOKIDAR_USEPOLLING=1 parcel src/index.html --port 9000 --hmr-port 9001",
+    "start": "yarn install && yarn serve",
+    "serve": "CHOKIDAR_USEPOLLING=1 parcel src/index.html --port 9000 --hmr-port 9001",
     "build": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

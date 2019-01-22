@@ -1,9 +1,6 @@
 import React, { Component }  from 'react';
 import { hot } from 'react-hot-loader';
 
-import tvData from './data/tv.json';
-import movieData from './data/movie.json';
-
 import userAvatar from './assets/images/user.jpg';
 import narcosBackground from './assets/images/narcos-bg.jpg';
 import narcosLogo from './assets/images/narcos-logo.png';
@@ -13,9 +10,29 @@ import './App.scss';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      shows: {
+        data: {},
+        loaded: false
+      },
+      movies: {
+        data: {},
+        loaded: false
+      }
+    };
+  }
+
+  componentDidMount() {
+    fetch('')
+      .then(res => res.json())
+      .then(result => {
+
+      });
   }
 
   render() {
+    const { movies, shows } = this.state;
     return (
       <div className="App">
         <header className="Header">
@@ -23,8 +40,8 @@ class App extends Component {
           <UserProfile />
         </header>
         <Hero />
-        <TitleList title="Top TV picks for Cindy" content='tv' />
-        <TitleList title="Trending now" content='movie' />
+        <TitleList title="Top TV picks for Cindy" titles={shows.data} loaded={shows.loaded}/>
+        <TitleList title="Trending now" titles={movies.data} loaded={movies.loaded} />
       </div>
     );
   }
@@ -101,9 +118,9 @@ class TitleList extends Component {
   loadContent() {
     let data;
     if (this.props.content === 'tv') {
-      data = tvData;
+      data = this.state.shows.data;
     } else {
-      data = movieData;
+      data = this.state.movies.data;
     }
     this.setState({ data: data });
   }

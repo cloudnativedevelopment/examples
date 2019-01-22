@@ -1,14 +1,14 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: movies
+  name: movies-api
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: movies
+        app: movies-api
     spec:
       containers:
-      - image: okteto/example-react
-        name: movies
+      - image: okteto/example-react-api
+        name: movies-api

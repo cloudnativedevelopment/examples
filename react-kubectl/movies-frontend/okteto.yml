@@ -1,6 +1,6 @@
 swap:
   deployment:
-    name: movies
+    name: movies-frontend
     image: okteto/node:11
     command:
      - sh
