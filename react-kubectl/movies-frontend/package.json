@@ -8,12 +8,12 @@
     "react-hot-loader": "^4.3.12"
   },
   "devDependencies": {
-    "parcel-bundler": "git://github.com/rlamana/parcel.git#hmr-client-options",
+    "parcel-bundler": "git://github.com/rlamana/parcel.git#hmr-public-url",
     "sass": "^1.15.3"
   },
   "scripts": {
     "start": "yarn install && yarn serve",
-    "serve": "CHOKIDAR_USEPOLLING=1 parcel src/index.html --port 9000 --hmr-port 9001 --hmr-path /hmr --hmr-client-port 443",
+    "serve": "CHOKIDAR_USEPOLLING=1 parcel src/index.html --port 9000 --hmr-port 9001 --hmr-public-url [hostname]/hmr",
     "build": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
