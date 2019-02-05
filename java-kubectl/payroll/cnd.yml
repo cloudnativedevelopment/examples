@@ -1,7 +1,7 @@
 swap:
   deployment:
     name: payroll
-    image: gradle:5.1-jdk11
+    image: okteto/payroll:0.1-dev
     command: 
     - gradle
     - build
